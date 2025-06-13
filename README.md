@@ -117,7 +117,7 @@ The basic command to run LAMMPS is as below, in which numprocesses=px\*py\*pz is
 mpirun -np numprocesses path_of_lammps/lmp_mpi -in in.lmp
 ```
 
-For example, if you run one simulation with `processors 2 2 2`, numprocesses shoule be 8. The allocation of corresponding computing resources is usually done by a job system such as Slurm. We also provide an example `job-md.slurm`.
+For example, if you run one simulation with `processors 2 2 2`, numprocesses should be 8. The allocation of corresponding computing resources is usually done by a job system such as Slurm. We also provide an example `job-md.slurm`.
 
 
 
