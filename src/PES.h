@@ -5,7 +5,6 @@
 #include "model.h"
 #include "density.h"
 #include "get_neigh.h"
-#include "log_time.h"
 #include <iostream>
 #include <fstream> // added for cout to file
 

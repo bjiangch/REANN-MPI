@@ -1,0 +1,30 @@
+variable nvt_dt            equal   0.005
+variable cutoff            equal   4.0
+variable neigh_skin        equal   0.5
+variable T_start           equal   300.0
+variable T_end             equal   300.0
+variable T_damp            equal   100*${nvt_dt}
+variable seed              equal   999999999
+variable mass1             equal   107.870
+variable input_structure   string  data.lmp
+variable integerate        string  verlet
+variable poten_function    string  reann_mpi
+variable datatype          string  float  # optional float/double
+
+units       metal
+dimension   3         
+comm_style  brickreann
+processors  2 2 2       # processor on each dimension
+boundary    p p p
+atom_style  atomic
+read_data   ${input_structure}
+mass 1      ${mass1} 
+replicate   2 2 2
+neighbor ${neigh_skin} bin
+velocity all create ${T_start} ${seed}
+pair_style ${poten_function}
+pair_coeff * * ${cutoff} ${datatype}
+
+timestep ${nvt_dt}
+fix 1 all nvt temp ${T_start} ${T_end} ${T_damp}
+run 1000

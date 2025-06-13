@@ -6,7 +6,6 @@
 #include <cmath>
 
 #include "activate.h"
-#include "utils_x.h"
 
 class ResBlockImpl : public torch::nn::Module {
   public:
